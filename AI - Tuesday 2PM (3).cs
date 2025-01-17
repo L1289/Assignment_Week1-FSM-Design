@@ -1,5 +1,3 @@
-# Assignment_Week1-FSM-Design
-
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
