@@ -1,18 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NodeCanvas.Framework;
+using ParadoxNotion.Design;
 
-public class RotateAT : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+namespace NodeCanvas.Tasks.Actions {
+
+	public class RotateAT : ActionTask {
+
+        public GameObject player;
+        public Vector3 rotateChange;
+
+        //Use for initialization. This is called only once in the lifetime of the task.
+        //Return null if init was successfull. Return an error string otherwise
+        protected override string OnInit() {
+			return null;
+		}
+
+		//This is called once each time the task is enabled.
+		//Call EndAction() to mark the action as finished, either in success or failure.
+		//EndAction can be called from anywhere.
+		protected override void OnExecute() {
+
+			player.transform.eulerAngles += rotateChange;
+
+			EndAction(true);
+		}
+
+		//Called once per frame while the action is active.
+		protected override void OnUpdate() {
+			
+		}
+
+		//Called when the task is disabled.
+		protected override void OnStop() {
+			
+		}
+
+		//Called when the task is paused.
+		protected override void OnPause() {
+			
+		}
+	}
 }
